@@ -1,0 +1,372 @@
+body{
+	font: 16px/1 'Open Sans', sans-serif;
+	background-color: #F4F5F8;
+}
+h1,h2,h3,h4,h5,p,a{
+	font-weight: 300;
+}
+/*navigacija*/
+.navbar{
+	border:none;
+}
+.navbar-nav{
+	margin:0px;
+}
+.navbar-collapse{
+	padding:0px;
+}
+.navbar-default{
+	background-color: #FFF;
+	padding:20px 0px;
+}
+
+.navbar-default .navbar-nav li a, .dropdown-menu li a{	
+	font-size:16px;
+	font-weight: 600;
+	color:#757575;
+	margin:10px 15px;
+	padding:5px 10px;
+	-webkit-border-radius: 2px;
+	        border-radius: 2px;
+}
+.navbar-default .navbar-nav li a:hover, .dropdown-menu li a:hover{
+	color:#3ab4ed;
+	background-color: #FFF;
+}
+.navbar-default .navbar-nav li.active a,.navbar-default .navbar-nav li.active a:hover{	
+  background-color: #c8cace;
+	color:#fff;	
+}
+.dropdown-menu{
+	padding:0px;
+}
+/*end navigacija*/
+/*sve stranice*/
+.no-padding{
+	padding-left:0px;
+	padding-right:10px;
+}
+.img-responsive{
+	margin-bottom: 20px;
+}
+@media screen and (max-width: 991px) {
+    .no-padding-responsive {
+        padding-left: 0px;
+        padding-right: 10px;
+    }
+}
+.margin{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.no-margin{
+	margin:0;
+}
+/*end sve stranice*/
+
+/*index.php*/
+/*za sve tabove*/
+#tabs{
+	width:100%;
+}
+#tabs.nav-tabs li a{
+	
+}
+.nav-tabs li a{
+	color:#757575;
+}
+.nav-tabs li a:hover{
+	color:#3ab4ed;
+	background-color: transparent;	
+	border:1px solid transparent;
+}
+.nav-tabs li.active a{	
+	color:#c8cace;	
+	
+}
+.tab-pane{
+	padding-top:20px ;
+	padding-left: 15px;
+	padding-bottom: 20px;
+	padding-right:15px;
+	background-color: #FFF;
+	border: solid 1px #e6e7ea;
+	border-top: none;
+}
+.well{
+	-webkit-border-radius: 0px;
+	        border-radius: 0px;
+	background-color: #F4F5F8;
+	border: none;
+}
+
+/*prikaz podataka o rezervaciji na kraju*/
+dt, dd{
+	padding-bottom: 10px;
+}
+.dl-horizontal dt
+{
+    white-space: normal;
+    width: 200px;
+}
+
+#success{
+	font-weight: 600;
+}
+
+
+.carousel-inner > .item > img {
+   
+      margin:0 auto;
+  }
+
+/*end inex.php*/
+
+/*gumbi*/
+.btn-default, .btn-primary, .btn-info,.btn-danger{
+	border:none;
+	padding: 15px 20px;
+	color: #fff;
+	-webkit-border-radius: 0px;
+	        border-radius: 0px;
+}
+.btn-default{
+	background-color: #E93C40;	
+}
+.btn-default:hover{
+	background-color: #FF3C40;
+	color: #fff;
+}
+.btn-primary{
+	background-color: #E93C40;	
+}
+.btn-primary:hover{
+	background-color: #FF3C40;
+	color: #fff;	
+}
+.btn-info{
+	background-color: #219bd4
+}
+.btn-info:hover{
+	background-color: #3AB4ED;	
+}
+
+
+/*footer*/
+footer{
+	background-color: #fff;
+	margin-top: 50px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+footer i{
+	font-size: 32px;
+}
+footer  a{
+	color:black;
+}
+footer  a:hover{
+	color:#555;
+}
+/*end footer*/
+
+
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+.cf:before, .cf:after {
+  content: ' ';
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+
+.title {
+  padding: 50px 0;
+  font: 24px 'Open Sans', sans-serif;
+  text-align: center;
+}
+.breadcrumbs ul {
+	margin-bottom: 0;
+}
+
+.breadcrumbs li {
+  float: left;
+  width: 20%;
+}
+.breadcrumbs a {
+  position: relative;
+  display: block;
+  padding: 20px;
+  padding-right: 0 !important;
+  /* important overrides media queries */
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  color: #757575;
+  cursor: pointer;
+}
+.breadcrumbs a:hover {
+  background: #eee;
+}
+.breadcrumbs a span:first-child {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  padding: 2px;
+  margin-right: 5px;
+  border: 2px solid #757575;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.breadcrumbs a:before,
+.breadcrumbs a:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 1;
+  display: block;
+  width: 0;
+  height: 0;  
+  border-top: 32px solid transparent;
+  border-bottom: 32px solid transparent;
+  border-left: 16px solid transparent;
+}
+
+.breadcrumbs a:before {
+  margin-left: 1px;
+  border-left-color: #d5d5d5;
+}
+
+.breadcrumbs a:after {
+  border-left-color: #F4F5F8;
+}
+
+.breadcrumbs a:hover:after {
+  border-left-color: #eee;
+}
+
+
+.breadcrumbs li.active {
+  color: #757575;
+  background-color: #fff;
+}
+.breadcrumbs li.active a span:first-child {
+  color: #fff;
+  border-color: #757575;
+  background-color: #757575;
+}
+.breadcrumbs li.active a{
+  color:#757575;
+}
+.breadcrumbs li.active a:after {
+  border-left-color: #fff;
+}
+.breadcrumbs li.active a:hover:after {
+  border-left-color: #eee;
+}
+.breadcrumbs li.disabled a{
+  color:#aaa;
+}
+.breadcrumbs li.disabled a:hover{	
+  text-decoration: none;
+  background-color: #F4F5F8;
+  cursor: not-allowed;	
+}
+.breadcrumbs li.disabled a span:first-child{
+  border: 2px solid #aaa;
+}
+.breadcrumbs li.disabled a:hover:after {
+  border-left-color: #F4F5F8;
+}
+.breadcrumbs li:last-child a:before,
+.breadcrumbs li:last-child a:after {
+  display: none;
+}
+@media (max-width: 975px) {
+  .breadcrumbs a {
+    padding: 15px;
+  }
+
+  .breadcrumbs a:before,
+  .breadcrumbs a:after {
+    border-top-width: 34px;
+    border-bottom-width: 34px;
+    border-left-width: 17px;
+  }
+}
+@media (max-width: 720px) {
+  .breadcrumbs a {
+    padding: 15px;
+  }
+
+  .breadcrumbs a:before,
+  .breadcrumbs a:after {
+    border-top-width: 32px;
+    border-bottom-width: 32px;
+    border-left-width: 16px;
+  }
+}
+@media (max-width: 620px) {
+  .breadcrumbs a {
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .breadcrumbs a:before,
+  .breadcrumbs a:after {
+    border-top-width: 32px;
+    border-bottom-width: 32px;
+    border-left-width: 16px;
+  }
+}
+@media (max-width: 520px) {
+  .breadcrumbs a {
+    padding: 5px;
+  }
+
+  .breadcrumbs a:before,
+  .breadcrumbs a:after {
+    border-top-width: 16px;
+    border-bottom-width: 16px;
+    border-left-width: 8px;
+  }
+
+  .breadcrumbs li a span:first-child {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .breadcrumbs li a span:last-child {
+    display: none;
+  }
+}
+
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.checked {
+    background-color: #e7e7e7;
+}
+
+#cars tr,
+#extra-option tr{
+    cursor: default;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
