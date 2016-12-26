@@ -32,87 +32,24 @@
 The purpose of the application is to allow Car Rental businesses to make reservation process for their customers both intuitive and easier. This application is based on REST API architecture which was realized with Laravel, AngularJS and MySQL. UI is powered by Bootstrap.
 
 # Setting up Dev Enviroment (optional)
-This project can be deployed using Vagrant, if needed. The process of deploying this is described in this section.
+After forking this project create database.sqlite file from project directory.
 #### 
 ```sh
-vagrant box add laravel/homestead
-cd ~
-git clone https://github.com/laravel/homestead.git Homestead
-cd Homestead
-bash init.sh
-cd ~
-mkdir code    #Directory where project is located
+touch database/database.sqlite
 ```
 
-Editing configuration file Homestead.yaml which is located ~/.homestead
+<br />Run migration
 ```sh
-cd ~/.homestead
-#open Homestead.yaml
+#Navigate to project directory
+
+php artisan migrate --seed
+or
+php artisan migrate:refresh --seed
 ```
-
-Example of how Homestead.yaml looks like. Pay attention to comments
-
-```sh
-ip: "192.168.10.10"
-memory: 2048
-cpus: 1
-provider: virtualbox
-
-authorize: ~/.ssh/id_rsa.pub
-
-keys:
-    - ~/.ssh/id_rsa
-    
-# Mapping between host and guest (unix or windows?)
-folders:
-    - map: C:\Users\livem\code
-      to: /home/vagrant/code
-
-# Accessing localhost using domain name in hosts file; Add :8000
-sites:
-    - map: dwa2.app
-      to: /home/vagrant/code/seminar2/public
-     
-# seminarone is DB that is used in this case
-databases:
-    - homestead
-    - dwaseminar2
+<br>These commands will seed databse with dummy data. Now run
 ```
-
-Add url in hosts file (system32/drivers/etc and so on)
-
-```sh
-127.0.0.1 dwa2.app
+php artisan serve
 ```
-
-Copy content from "seminar2" inside "code/seminar2" directory
-<br />
-<br />
-Initialize DB settings
-```sh
-# Set this in .env file. Create file if doesnt exist
-
-# DB settings:
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=dwaseminar2
-DB_USERNAME=homestead
-DB_PASSWORD=secret
-```
-<br />Navigate to Homestead directory
-```sh
-cd ~/Homestead
-vagrant up --provision
-vagrant ssh
-
-#Navigate to project directory. In this case ~/code/seminar2
-
-php artisan migrate
-php artisan db:seed
-```
-<br> These commands will seed databse with dummy data. Website is now ready to access.
-<br> Access it via dwa2.app:8000
 
 <br>Test Login
 ```
@@ -137,17 +74,17 @@ List of routes used by this application with limited access and grants. Routes a
   - /admin/api/reservations/confirm - API to confirm reservation was received
   - /admin/api/reservations/deliver - API to confirm that car was delivered to customer
   - /admin/api/reservations/returned - API to confirm that car was returned and set reservation as completed
-  - /api/makes/add - API to add makes
-  - /api/fuels/add - API to add fuels
-  - /api/extras/add - API to add extras
-  - /api/cities/add - API to add cities
-  - /api/classes/add - APi to classes
-  - /api/colors/add - API to add colors
-  - /api/branches/add - API to add branches
-  - /api/models/add - API to models under available make
-  - /api/cars/add - API to add cars
+  - [POST] /api/makes - API to add makes
+  - [POST] /api/fuels - API to add fuels
+  - [POST] /api/extras - API to add extras
+  - [POST] /api/cities - API to add cities
+  - [POST] /api/classes - APi to classes
+  - [POST] /api/colors - API to add colors
+  - [POST] /api/branches - API to add branches
+  - [POST] /api/models - API to models under available make
+  - [POST] /api/cars - API to add cars
   
-- Pristup: Autenticirani korisnici
+- Access: Authenticated users
   - /api/reservation/save - API to confirm reservation by user
   - /api/users/reservations - API to retrieve reservation for user
   - /reservations - View to display user's reservations
