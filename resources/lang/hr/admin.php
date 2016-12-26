@@ -5,6 +5,7 @@ return [
     'city'=>'Grad',
     'postcode'=>'Poštanski broj',
     'action'=>'Akcija',
+    'price_day'=>'Cijena po danu',
     'edit'=>'Uredi',
     'city_name'=>'Grad:*',
     'city_postcode'=>'Poštanski broj:*',

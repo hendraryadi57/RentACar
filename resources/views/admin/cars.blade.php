@@ -28,7 +28,7 @@
                                 <td>@{{ car.make + " " + car.model }}</td>
                                 <td>@{{ car.fuel }}</td>
                                 <td>@{{ car.isAutomatic }}</td>
-                                <td>@{{ car.name }}</td>
+                                <td>@{{ car.branch }}</td>
                                 <td>@{{ car.registration }}</td>
                                 <td>@{{ car.pricePerDay }}</td>
                                 <td>

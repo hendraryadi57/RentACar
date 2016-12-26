@@ -17,8 +17,8 @@ class CreateBranchesTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('address');
-            $table->integer('city')->unsigned();
-            $table->foreign('city')->references('id')->on('cities');
+            $table->integer('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->string('phone');
             $table->nullableTimestamps();
         });

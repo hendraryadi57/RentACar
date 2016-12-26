@@ -20,7 +20,7 @@ class CarsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'makemodel' => 1,
+                'model_id' => 1,
                 'fuel' => 1,
                 'registration' => 'ZG1211GH',
                 'color' => NULL,
@@ -40,7 +40,7 @@ class CarsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'makemodel' => 3,
+                'model_id' => 3,
                 'fuel' => 2,
                 'registration' => 'ZG222BH',
                 'color' => NULL,
@@ -60,7 +60,7 @@ class CarsTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'makemodel' => 5,
+                'model_id' => 5,
                 'fuel' => 1,
                 'registration' => 'ZG111kl',
                 'color' => NULL,

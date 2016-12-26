@@ -30,15 +30,18 @@ class AdminController extends Controller
         return view('admin.fuels');
     }
     
-    public function getExtrasView(){
+    public function getExtrasView()
+    {
         return view('admin.extras');
     }
     
-    public function getClassesView(){
+    public function getClassesView()
+    {
         return view('admin.classes');
     }
     
-    public function getReservationsView(){
+    public function getReservationsView()
+    {
         return view("admin.reservations");
     }
 }

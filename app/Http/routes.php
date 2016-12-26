@@ -1,10 +1,11 @@
 <?php
 
-// Routes that can be access by admins
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+// Routes that can only be accessed by Administrators
+Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
-    // Routes that return Views go through Locale middleware
+    // These routes should go through Locale middleware
     Route::group(['middleware' => 'locale'], function () {
+
         Route::get('/', function () {
             return view('admin.admin');
         });
@@ -52,24 +53,23 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::get('/api/reservations', [
         'as' => 'getReservations',
-        'uses' => 'ApiController@getReservations'
+        'uses' => 'Api\ReservationController@index'
     ]);
 
     Route::post('/api/reservations/confirm', [
         'as' => 'confirmReservation',
-        'uses' => 'ApiController@confirmReservation'
+        'uses' => 'Api\ReservationController@confirmReservation'
     ]);
 
     Route::post('/api/reservations/deliver', [
         'as' => 'carDelivered',
-        'uses' => 'ApiController@carDelivered'
+        'uses' => 'Api\ReservationController@carDelivered'
     ]);
 
     Route::post('/api/reservations/returned', [
         'as' => 'carReturned',
-        'uses' => 'ApiController@carReturned'
+        'uses' => 'Api\ReservationController@carReturned'
     ]);
-
 });
 
 
@@ -77,12 +77,12 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::post('/api/reservation/save', [
         'as' => 'reservationSave',
-        'uses' => 'ApiController@reservationSave'
+        'uses' => 'Api\UserReservationController@store'
     ]);
 
     Route::get('/api/users/reservations', [
         'as' => 'getUserReservations',
-        'uses' => 'ApiController@getUserReservations'
+        'uses' => 'Api\UserReservationController@index'
     ]);
 
     Route::group(['middleware' => 'locale'], function () {
@@ -127,9 +127,6 @@ Route::get('/settings/lang/{id}', [
     'uses' => 'HomeController@changeLanguage'
 ]);
 
-
-
-
 Route::get('/api/authenticated', [
     'as' => 'checkIfUserIsAuthenticated',
     'uses' => 'ApiController@authenticated'
@@ -137,92 +134,92 @@ Route::get('/api/authenticated', [
 
 Route::get('/api/makes', [
     'as' => 'getMakes',
-    'uses' => 'ApiController@getMakes'
+    'uses' => 'Api\MakeController@index'
 ]);
 
 Route::get('/api/fuels', [
     'as' => 'getFuels',
-    'uses' => 'ApiController@getFuels'
+    'uses' => 'Api\FuelController@index'
 ]);
 
 Route::get('/api/extras', [
     'as' => 'getExtras',
-    'uses' => 'ApiController@getExtras'
+    'uses' => 'Api\ExtraController@index'
 ]);
 
 Route::get('/api/cities', [
     'as' => 'getCities',
-    'uses' => 'ApiController@getCities'
+    'uses' => 'Api\CityController@index'
 ]);
 
 Route::get('/api/classes', [
     'as' => 'getClasses',
-    'uses' => 'ApiController@getClasses'
+    'uses' => 'Api\ClassController@index'
 ]);
 
 Route::get('/api/colors', [
     'as' => 'getColors',
-    'uses' => 'ApiController@getColors'
+    'uses' => 'Api\ColorController@index'
 ]);
 
 Route::get('/api/branches', [
     'as' => 'getBranches',
-    'uses' => 'ApiController@getBranches'
+    'uses' => 'Api\BranchController@index'
 ]);
 
 Route::get('/api/models', [
     'as' => 'getModels',
-    'uses' => 'ApiController@getModels'
+    'uses' => 'Api\ModelController@index'
 ]);
 
 Route::get('/api/cars', [
     'as' => 'getCars',
-    'uses' => 'ApiController@getCars'
+    'uses' => 'Api\CarController@index'
 ]);
 
-Route::post('/api/makes/add', [
+Route::post('/api/makes', [
     'as' => 'addMake',
-    'uses' => 'ApiController@addMake'
+    'uses' => 'Api\MakeController@store'
 ]);
 
-Route::post('/api/fuels/add', [
+Route::post('/api/fuels', [
     'as' => 'addFuel',
-    'uses' => 'ApiController@addFuel'
+    'uses' => 'Api\FuelController@store'
 ]);
 
-Route::post('/api/extras/add', [
+Route::post('/api/extras', [
     'as' => 'addExtra',
-    'uses' => 'ApiController@addExtra'
+    'uses' => 'Api\ExtraController@store'
 ]);
 
-Route::post('/api/cities/add', [
+Route::post('/api/cities', [
     'as' => 'addCity',
-    'uses' => 'ApiController@addCity'
+    'uses' => 'Api\CityController@store'
 ]);
 
-Route::post('/api/classes/add', [
+Route::post('/api/classes', [
     'as' => 'addClass',
-    'uses' => 'ApiController@addClass'
+    'uses' => 'Api\ClassController@store'
 ]);
 
-Route::post('/api/colors/add', [
+Route::post('/api/colors', [
     'as' => 'addColor',
-    'uses' => 'ApiController@addColor'
+    'uses' => 'Api\ColorController@store'
 ]);
 
-Route::post('/api/branches/add', [
+Route::post('/api/branches', [
     'as' => 'addBranch',
-    'uses' => 'ApiController@addBranch'
+    'uses' => 'Api\BranchController@store'
 ]);
 
-Route::post('/api/models/add', [
+Route::post('/api/models', [
     'as' => 'addModel',
-    'uses' => 'ApiController@addModel'
+    'uses' => 'Api\ModelController@store'
 ]);
 
-Route::post('/api/cars/add', [
+Route::post('/api/cars', [
     'as' => 'addCar',
-    'uses' => 'ApiController@addCar'
+    'uses' => 'Api\CarController@store'
 ]);
 
 Route::post('/api/email/send', [

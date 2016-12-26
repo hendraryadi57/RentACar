@@ -157,7 +157,7 @@
         $scope.getClasses = function () {
             $scope.service.getClasses()
                 .then(function (res) {
-                    $scope.data.classes = res.data;
+                    $scope.data.classes = res.data.types;
                 }, function (err) {
                     console.log("Error");
                 })
@@ -166,7 +166,7 @@
         $scope.getExtras = function () {
             $scope.service.getExtras()
                 .then(function (res) {
-                    $scope.data.extras = res.data;
+                    $scope.data.extras = res.data.extras;
                 }, function (err) {
                     console.log("Error");
                 })
@@ -175,7 +175,7 @@
         $scope.getCities = function () {
             $scope.service.getCities()
                 .then(function (res) {
-                    $scope.data.cities = res.data;
+                    $scope.data.cities = res.data.cities;
                 }, function (err) {
                     console.log("Error");
                 })
@@ -188,7 +188,8 @@
         $scope.getCars = function () {
             $scope.service.getCars()
                 .then(function (res) {
-                    $scope.data.cars = res.data;
+                    $scope.data.cars = res.data.cars;
+                    console.log(res.data.cars);
                 }, function (err) {
                     console.log("Error");
                 })
@@ -217,7 +218,7 @@
             $scope.service.getMakes()
                 .then(function (res) {
                     console.log(res.data);
-                    $scope.data.makes = res.data;
+                    $scope.data.makes = res.data.makes;
                 }, function (err) {
                     console.log("Error");
                 })
@@ -226,7 +227,7 @@
         $scope.getFuels = function () {
             $scope.service.getFuels()
                 .then(function (res) {
-                    $scope.data.fuels = res.data;
+                    $scope.data.fuels = res.data.fuels;
                 }, function (err) {
                     console.log("Error");
                 })
@@ -235,7 +236,7 @@
         $scope.getColors = function () {
             $scope.service.getColors()
                 .then(function (res) {
-                    $scope.data.colors = res.data;
+                    $scope.data.colors = res.data.colors;
                 }, function (err) {
                     console.log("Error");
                 })
@@ -244,7 +245,8 @@
         $scope.getBranches = function () {
             $scope.service.getBranches()
                 .then(function (res) {
-                    $scope.data.branches = res.data;
+                    $scope.data.branches = res.data.branches;
+                    console.log(res.data);
                 }, function (err) {
                     console.log("Error");
                 })
@@ -253,10 +255,10 @@
         $scope.getModels = function () {
             $scope.service.getModels()
                 .then(function (res) {
-                    $scope.data.models = res.data;
+                    console.log(res.data.models);
+                    $scope.data.models = res.data.models;
                     for(var i = 0; i < $scope.data.models.length; i++){
                         $scope.data.makeModels.push($scope.data.models[i].make + " " + $scope.data.models[i].model );
-
                     }
                     console.log($scope.data.makeModels);
                 }, function (err) {
@@ -283,6 +285,7 @@
 
 
         $scope.confirmReservation = function (id) {
+            console.log(id);
             $scope.service.confirmReservation(id)
                 .then(function (res) {
                 }, function (err) {
@@ -492,7 +495,7 @@
         $scope.getReservations = function () {
             $scope.service.getReservations()
                 .then(function (res) {
-                    $scope.data.reservations = res.data;
+                    $scope.data.reservations = res.data.reservations;
                 }, function (err) {
                     console.log("Error");
                 });
@@ -510,7 +513,14 @@
                 $scope.vars.addBranch.city &&
                 $scope.vars.addBranch.city !== "-"
             ){
-                $scope.service.addBranch($scope.vars)
+                $scope.service.addBranch({
+                    name: $scope.vars.addBranch.name,
+                    email: $scope.vars.addBranch.email,
+                    phone: $scope.vars.addBranch.phone,
+                    address: $scope.vars.addBranch.address,
+                    city: $scope.vars.addBranch.city,
+                    id:$scope.vars.addBranch.id
+                })
                     .then(function (res) {
                         $scope.vars.addBranch = {};
                         $scope.getBranches();
@@ -546,7 +556,7 @@
                 $scope.vars.addCar.pricePerDay
             ) {
                 Upload.upload({
-                    url: '../../../api/cars/add',
+                    url: '../../../api/cars',
                     data: {
                         file: $scope.vars.file,
                         car: $scope.vars.addCar
@@ -577,7 +587,11 @@
                 $scope.vars.addCity.city &&
                 $scope.vars.addCity.postcode
             ) {
-                $scope.service.addCity($scope.vars)
+                $scope.service.addCity({
+                    city: $scope.vars.addCity.city,
+                    postcode: $scope.vars.addCity.postcode,
+                    id: $scope.vars.addCity.id
+                })
                     .then(function (res) {
                         $scope.vars.addCity = {};
                         $scope.getCities();
@@ -597,7 +611,10 @@
             if(
                 $scope.vars.addClass
             ) {
-                $scope.service.addClass($scope.vars)
+                $scope.service.addClass({
+                    id: $scope.vars.addClass.id,
+                    type: $scope.vars.addClass.class
+                })
                     .then(function (res) {
                         $scope.vars.addClass = {};
                         $scope.getClasses();
@@ -614,7 +631,10 @@
         };
 
         $scope.addColor = function () {
-            $scope.service.addColor($scope.vars)
+            $scope.service.addColor({
+                id: $scope.vars.addColor.id,
+                color: $scope.vars.addColor.color
+            })
                 .then(function (res) {
                     $scope.vars.addColor = "";
                     $scope.getColors();
@@ -630,7 +650,12 @@
                 $scope.vars.addExtra.price &&
                 $scope.vars.addExtra.price != 0
             ) {
-                $scope.service.addExtra($scope.vars)
+                $scope.service.addExtra({
+                    title: $scope.vars.addExtra.title,
+                    description: $scope.vars.addExtra.description,
+                    price: $scope.vars.addExtra.price,
+                    id: $scope.vars.addExtra.id
+                })
                     .then(function (res) {
                         $scope.vars.addExtra = {};
                         $scope.getExtras();
@@ -650,7 +675,10 @@
             if(
                 $scope.vars.addFuel
             ) {
-                $scope.service.addFuel($scope.vars)
+                $scope.service.addFuel({
+                    fuel: $scope.vars.addFuel.fuel,
+                    id: $scope.vars.addFuel.id
+                })
                     .then(function (res) {
                         $scope.vars.addFuel = {};
                         $scope.getFuels();
@@ -670,7 +698,7 @@
             if(
                 $scope.vars.addMake
             ) {
-                $scope.service.addMake($scope.vars)
+                $scope.service.addMake($scope.vars.addMake)
                     .then(function (res) {
                         $scope.vars.addMake = {};
                         $scope.getMakes();
@@ -692,7 +720,12 @@
                 $scope.vars.addModel.make &&
                 $scope.vars.addModel.make != "-"
             ) {
-                $scope.service.addModel($scope.vars)
+                console.log($scope.vars.addModel);
+                $scope.service.addModel({
+                    make: $scope.vars.addModel.make,
+                    model: $scope.vars.addModel.model,
+                    id: $scope.vars.addModel.id
+                })
                     .then(function (res) {
                         $scope.vars.addModel = {};
                         $scope.getModels();
@@ -810,8 +843,6 @@
             $scope.vars.addCar.minAge = car.minAge;
             $scope.vars.addCar.pricePerDay = car.pricePerDay;
         };
-
-
     };
 
     angular.module("rentACarApp")

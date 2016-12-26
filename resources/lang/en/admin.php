@@ -57,6 +57,7 @@ return [
     'enter_des' => 'Enter description:*',
     'enter_price' => 'Enter price:*',
     'add_extra'=>'Add Extra',
+    'price_day'=>'Price/Day',
     /*fuels*/
     'fuels'=>'Fuels',
     'fuel'=>'Fuel',

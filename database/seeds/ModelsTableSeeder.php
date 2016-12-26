@@ -20,7 +20,7 @@ class ModelsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'make' => 1,
+                'make_id' => 1,
                 'model' => 'A4',
                 'created_at' => '2016-12-18 12:49:26',
                 'updated_at' => '2016-12-18 12:49:26',
@@ -28,7 +28,7 @@ class ModelsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'make' => 2,
+                'make_id' => 2,
                 'model' => 'Polo',
                 'created_at' => '2016-12-18 12:49:42',
                 'updated_at' => '2016-12-18 12:49:42',
@@ -36,7 +36,7 @@ class ModelsTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'make' => 2,
+                'make_id' => 2,
                 'model' => 'Up!',
                 'created_at' => '2016-12-18 12:49:47',
                 'updated_at' => '2016-12-18 12:49:47',
@@ -44,7 +44,7 @@ class ModelsTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
-                'make' => 3,
+                'make_id' => 3,
                 'model' => '118d',
                 'created_at' => '2016-12-18 12:49:55',
                 'updated_at' => '2016-12-18 12:49:55',
@@ -52,7 +52,7 @@ class ModelsTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
-                'make' => 4,
+                'make_id' => 4,
                 'model' => 'S40',
                 'created_at' => '2016-12-18 12:50:01',
                 'updated_at' => '2016-12-18 12:50:01',
@@ -60,7 +60,7 @@ class ModelsTableSeeder extends Seeder
             5 => 
             array (
                 'id' => 6,
-                'make' => 4,
+                'make_id' => 4,
                 'model' => 'S40',
                 'created_at' => '2016-12-18 12:50:24',
                 'updated_at' => '2016-12-18 12:50:24',
@@ -68,7 +68,7 @@ class ModelsTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
-                'make' => 5,
+                'make_id' => 5,
                 'model' => 'Yaris',
                 'created_at' => '2016-12-18 12:50:34',
                 'updated_at' => '2016-12-18 12:50:34',

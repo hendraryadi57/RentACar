@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         $cars = Car::all();
 
-        return view('home', ['cars' => $cars]);
+        return view('home', compact('cars'));
     }
 
     public function reset()
@@ -35,7 +35,7 @@ class HomeController extends Controller
     {
         $cars = Car::all();
 
-        return view('fleet', ['cars' => $cars]);
+        return view('fleet', compact('cars'));
     }
 
     public function getUserReservationsView()

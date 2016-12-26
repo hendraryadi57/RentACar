@@ -14,8 +14,8 @@ class CreateModelsTable extends Migration
     {
         Schema::create('models', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('make')->unsigned();
-            $table->foreign('make')->references('id')->on('makes');
+            $table->integer('make_id')->unsigned();
+            $table->foreign('make_id')->references('id')->on('makes');
             $table->string('model');
             $table->nullableTimestamps();
         });

@@ -1,12 +1,5 @@
 <?php
 
-use App\City;
-use App\Type;
-use App\Color;
-use App\Extra;
-use App\Fuel;
-use App\Make;
-use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

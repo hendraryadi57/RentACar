@@ -17,7 +17,6 @@
             "Cabriolet"
         ];
 
-
         var cars = [
             {
                 "id": 0,
@@ -57,7 +56,6 @@
             }
         ];
 
-
         var extras = [
             {
                 "id": 0,
@@ -89,8 +87,6 @@
         service.getTypes = function(){
             return types;
         };
-
-
 
         service.getClasses = function(){
             var defer = $q.defer();
@@ -152,8 +148,6 @@
             return locations;
         };
 
-        
-        
         service.checkIfUserIsAuthenticated = function () {
             var defer = $q.defer();
 
@@ -168,8 +162,6 @@
 
             return defer.promise;
         };
-
-
 
         service.getMakes = function () {
             var defer = $q.defer();
@@ -318,8 +310,11 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/makes/add',
-                data: make
+                url:  '../../../api/makes',
+                data: {
+                    'make': make.make,
+                    'id': make.id
+                }
             }).then(function successCallback(response) {
                 defer.resolve(response);
             }, function errorCallback(response) {
@@ -333,7 +328,7 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/fuels/add',
+                url:  '../../../api/fuels',
                 data: fuel
             }).then(function successCallback(response) {
                 defer.resolve(response);
@@ -348,7 +343,7 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/extras/add',
+                url:  '../../../api/extras',
                 data: extra
             }).then(function successCallback(response) {
                 defer.resolve(response);
@@ -363,7 +358,7 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/cities/add',
+                url:  '../../../api/cities',
                 data: city
             }).then(function successCallback(response) {
                 defer.resolve(response);
@@ -393,7 +388,7 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/classes/add',
+                url:  '../../../api/classes',
                 data: type
             }).then(function successCallback(response) {
                 defer.resolve(response);
@@ -408,7 +403,7 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/colors/add',
+                url:  '../../../api/colors',
                 data: color
             }).then(function successCallback(response) {
                 defer.resolve(response);
@@ -423,7 +418,7 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/branches/add',
+                url:  '../../../api/branches',
                 data: branch
             }).then(function successCallback(response) {
                 defer.resolve(response);
@@ -438,7 +433,7 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/models/add',
+                url:  '../../../api/models',
                 data: model
             }).then(function successCallback(response) {
                 defer.resolve(response);
@@ -461,7 +456,7 @@
             var defer = $q.defer();
             $http({
                 method: 'POST',
-                url:  '../../../api/cars/add',
+                url:  '../../../api/cars',
                 data: obj
             }).then(function successCallback(response) {
                 defer.resolve(response);
@@ -503,10 +498,8 @@
 
             return defer.promise;
         };
-        
 
         return service;
-        
     };
 
     angular.module("rentACarApp")

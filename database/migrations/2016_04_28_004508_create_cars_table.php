@@ -14,8 +14,8 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('makemodel')->unsigned();
-            $table->foreign('makemodel')->references('id')->on('models');
+            $table->integer('model_id')->unsigned();
+            $table->foreign('model_id')->references('id')->on('models');
             $table->integer('fuel')->unsigned();
             $table->foreign('fuel')->references('id')->on('fuels');
             $table->string('registration');
