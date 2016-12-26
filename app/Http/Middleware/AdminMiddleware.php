@@ -15,11 +15,13 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->isAdmin)
+        $user = $request->user();
+
+        if ($user || $user->isAdmin)
         {
-            return redirect('home');
+            return $next($request);
         }
 
-        return $next($request);
+        return redirect('home');
     }
 }

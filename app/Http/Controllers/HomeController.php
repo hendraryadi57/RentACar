@@ -7,7 +7,6 @@ use Artisan;
 use Log;
 use Session;
 use App\Car;
-use App\Http\Requests;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,6 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         $cars = Car::all();
+
         return view('home', ['cars' => $cars]);
     }
 
@@ -38,27 +38,15 @@ class HomeController extends Controller
         return view('fleet', ['cars' => $cars]);
     }
 
-    public function getUserReservationsView(Request $request){
+    public function getUserReservationsView()
+    {
         return view('user.reservations');
     }
 
-    public function changeLanguage($locale){
+    public function changeLanguage($locale)
+    {
+        Session::set('locale', $locale);
 
-
-        if(Session::get('locale') != "en" && Session::get('locale') != "hr"){
-            Session::set('locale', 'en');
-        }
-
-        if($locale == "en"){
-            Session::set('locale', 'en');
-        }
-        if($locale == "hr"){
-            Session::set('locale', 'hr');
-        }
-
-
-
-        # redirect back to the page we came from
-        return redirect()->back();
+        return back();
     }
 }

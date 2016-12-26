@@ -2,47 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use Illuminate\Http\Request;
-use App\Http\Requests;
 
 class AdminController extends Controller
 {
-    public function getData(Request $request){
-
-
+    public function getData()
+    {
         return view('admin.data');
     }
 
-    public function getCarsView(Request $request){
-
-
+    public function getCarsView()
+    {
         return view('admin.cars');
     }
     
-    public function getMakesModelsView(Request $request){
-
-
+    public function getMakesModelsView()
+    {
         return view('admin.makes');
     }
 
-    public function getBranchesCitiesView(Request $request){
-
-
+    public function getBranchesCitiesView()
+    {
         return view('admin.branches');
     }
     
-    public function getFuelsView(Request $request){
-
-
+    public function getFuelsView()
+    {
         return view('admin.fuels');
     }
     
-    public function getExtrasView(Request $request){
+    public function getExtrasView(){
         return view('admin.extras');
     }
     
-    public function getClassesView(Request $request){
+    public function getClassesView(){
         return view('admin.classes');
     }
     
