@@ -36,6 +36,10 @@ After forking this project create database.sqlite file from project directory.
 #### 
 ```sh
 touch database/database.sqlite
+
+composer install
+
+npm install
 ```
 
 <br />Run migration
