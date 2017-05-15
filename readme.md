@@ -189,7 +189,7 @@ The application currently supports English and Croatian languages.
 # Database
 Database management system used by this app is MySQL. DB Schema, i.e. Model Structure can be seen here.
 
-![alt text](https://raw.githubusercontent.com/parisian/DWA/master/seminar2/db.jpg "RentACar Model baze")
+![alt text](https://raw.githubusercontent.com/parisian/RentACar/master/db.jpg "RentACar Model baze")
 
 
 # FrontEnd
